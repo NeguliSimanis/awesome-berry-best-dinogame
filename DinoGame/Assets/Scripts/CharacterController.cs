@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private CharacterHealth characterHealth;
+    private Animator anim;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         characterHealth = GetComponent<CharacterHealth>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -40,15 +42,21 @@ public class CharacterController : MonoBehaviour
         {
             rb.velocity *= speed / rb.velocity.magnitude;
         }
+        if(moveHorizontal != 0)
+        {
+            anim.SetBool("moving", true);
+        } else {
+            anim.SetBool("moving", false);
+        }
 
         //kinda messy, should refactor it later
         if (moveHorizontal < 0 && rb.velocity.magnitude > 0)
         {
-            sprite.flipX = true;
+            transform.rotation = Quaternion.Euler(0, 180f, 0);
         }
         if(moveHorizontal > 0 && rb.velocity.magnitude > 0)
         {
-            sprite.flipX = false;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
