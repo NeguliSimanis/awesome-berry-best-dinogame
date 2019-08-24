@@ -38,12 +38,14 @@ public class SpawnerController : MonoBehaviour
             {
                 //randomly selects debris or pickup
                 xRandom = Random.Range(0, 10);
-                if (xRandom < chance)
+                if (xRandom < 5)
                     spawnableObj = debrisPrefab;
                 else
                 {
-                    if (Random.Range(0, 10) > 8)
+                    if (Random.Range(0, 10) > 5)
                         spawnableObj = healthPickupPrefab;
+                    else
+                        spawnableObj = suppliesPickupPrefab;
                 }
                     
 
