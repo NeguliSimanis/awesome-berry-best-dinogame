@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 1752493805}
   - component: {fileID: 1752493806}
   - component: {fileID: 1752493807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dinosaur
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1752493811
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,6 +9,11 @@ public class ItemController : MonoBehaviour
     {
         rb = gameObject.GetComponentInChildren<Rigidbody2D>();
     }
+    private void Update()
+    {
+        if (this.transform.position.y < -20f)
+            Destroy(this.gameObject);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -27,6 +32,24 @@ public class ItemController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+        if (collision.tag == "Environment" && this.gameObject.tag == "PointsPickup")
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        if (collision.tag == "Enemy" && this.gameObject.tag == "PointsPickup")
+        {
+            rb.isKinematic=true;
+            this.transform.parent = collision.transform;
+            collision.GetComponentInChildren<EnemyAI>().hasCrate = true;
+            this.tag = "Empty";
+        }
+    }
+
+    public void Dropped()
+    {
+        transform.tag = "PointsPickup";
+        transform.parent = null;
+        rb.isKinematic = false;
     }
 
 }

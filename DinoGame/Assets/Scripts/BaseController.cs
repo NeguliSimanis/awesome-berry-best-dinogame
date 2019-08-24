@@ -15,8 +15,9 @@ public class BaseController : MonoBehaviour
     private int currentCount;
     private GameObject obj;
     private float xRandom;
-
-    private void Update()
+    public int points;
+    
+    public  void Update()
     {
         SpawnUnits();
     }
@@ -31,10 +32,21 @@ public class BaseController : MonoBehaviour
             if (currentCount<unitCount)
             {
                 xRandom = Random.Range(-15.0f, -12.0f);
-                obj = Instantiate(enemyPrefab, new Vector3(xRandom, 8.6567f, 0f),Quaternion.identity);
+                obj = Instantiate(enemyPrefab, this.gameObject.transform.position, Quaternion.identity);
+                obj.transform.position = transform.position;
                 obj.transform.parent = this.gameObject.transform;
                 spawnRate = 5f;
+                Debug.Log(transform.position);
             }
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" && collision.GetComponentInChildren<EnemyAI>().hasCrate == true)
+        {
+            Destroy(collision.gameObject);
+            points++;
+        }
+            
     }
 }

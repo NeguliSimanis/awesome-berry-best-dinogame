@@ -15,7 +15,7 @@ public class SpawnerController : MonoBehaviour
     [SerializeField, Tooltip("Timer between spawns")]
     private float timer;
     [SerializeField, Tooltip("Powerup spawn rate")]
-    private int chance = 7;
+    private int chance = 6;
     private int childCount;
     private GameObject obj;
     private GameObject spawnableObj;
@@ -41,7 +41,13 @@ public class SpawnerController : MonoBehaviour
                 if (xRandom < chance)
                     spawnableObj = debrisPrefab;
                 else
-                    spawnableObj = healthPickupPrefab;
+                {
+                    if (Random.Range(0, 10) > 8)
+                        spawnableObj = healthPickupPrefab;
+                    else
+                        spawnableObj = suppliesPickupPrefab;
+                }
+                    
 
                 //instantiates and resets timer
                 xRandom = Random.Range(-10.0f, 10.0f);

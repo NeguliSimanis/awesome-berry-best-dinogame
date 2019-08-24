@@ -11,6 +11,7 @@ TagManager:
   - EnemyStructure
   - PointsPickup
   - FriendlyStructure
+  - Empty
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Enemies
+  - Fleeing
+  - Crates
   - 
   - 
   - 
