@@ -18,11 +18,6 @@ public class ItemController : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        else if(collision.tag == "Player" && this.gameObject.tag == "HealthPickup")
-        {
-            collision.gameObject.GetComponentInChildren<CharacterHealth>()._health += 10;
-            Destroy(this.gameObject);
-        }
         if(collision.tag == "Environment" && this.gameObject.tag == "Debris")
         {
             //animation or crashed debris TODO

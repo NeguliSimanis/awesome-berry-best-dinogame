@@ -8,6 +8,8 @@ public class SpawnerController : MonoBehaviour
     private GameObject debrisPrefab = null;
     [SerializeField]
     private GameObject healthPickupPrefab;
+    [SerializeField]
+    private GameObject suppliesPickupPrefab;
     [SerializeField, Tooltip("Max spawned items on map")]
     private int maxItemCount = 5;
     [SerializeField, Tooltip("Timer between spawns")]
