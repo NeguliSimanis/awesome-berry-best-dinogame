@@ -10,17 +10,22 @@ public class CharacterController : MonoBehaviour
     private float moveHorizontal;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
+    private CharacterHealth characterHealth;
 
     void Start()
     {
         speed = _speed;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        characterHealth = GetComponent<CharacterHealth>();
     }
 
     void FixedUpdate()
     {
-        MovePlayer();
+        if (!characterHealth.isDead)
+        {
+            MovePlayer();
+        }
     }
 
     void MovePlayer()
