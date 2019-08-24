@@ -18,6 +18,8 @@ public class CharacterActions : MonoBehaviour
     public Sprite defaultBody;
     public Sprite carryingBody;
 
+    public GameObject roarText;
+
     private void Start()
     {
         charHealth = GetComponent<CharacterHealth>();
@@ -89,5 +91,20 @@ public class CharacterActions : MonoBehaviour
     void DisableRoar()
     {
         anim.SetBool("roar", false);
+    }
+    void DisableRoarText()
+    {
+        roarText.SetActive(false);
+    }
+
+    void EnableRoarText()
+    {
+        if(transform.rotation.y == 180)
+        {
+            roarText.transform.rotation = Quaternion.Euler(0, 180f, 0);
+        } else {
+            roarText.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        roarText.SetActive(true);
     }
 }
