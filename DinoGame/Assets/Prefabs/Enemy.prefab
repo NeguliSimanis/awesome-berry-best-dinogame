@@ -50,6 +50,7 @@ MonoBehaviour:
   hasCrate: 0
   called: 0
   isFleeing: 0
+  anim: {fileID: 876786879830009602}
 --- !u!50 &2068714307
 Rigidbody2D:
   serializedVersion: 4
@@ -174,6 +175,12 @@ PrefabInstance:
 --- !u!4 &876786879830009603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7507904868456076560, guid: 92ae9832e8d50b744a253b619d4a3aba,
+    type: 3}
+  m_PrefabInstance: {fileID: 7213524939012157971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &876786879830009602 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7507904868456076561, guid: 92ae9832e8d50b744a253b619d4a3aba,
     type: 3}
   m_PrefabInstance: {fileID: 7213524939012157971}
   m_PrefabAsset: {fileID: 0}

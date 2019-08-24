@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     private float timer = 2f;
     public bool called = false;
     public bool isFleeing = false;
+    public Animator anim;
 
     private void Start()
     {
@@ -27,10 +28,15 @@ public class EnemyAI : MonoBehaviour
     {
         crates = GameObject.FindGameObjectsWithTag("PointsPickup");
         if (hasCrate == false)
+        {
             moveToCrate();
+            anim.SetBool("Dragging", false);
+        }
         else if (hasCrate == true)
+        {
             moveToBase();
-
+            anim.SetBool("Dragging", true);
+        }
         if (this.transform.position.y < -20f)
             Destroy(this.gameObject);
 
