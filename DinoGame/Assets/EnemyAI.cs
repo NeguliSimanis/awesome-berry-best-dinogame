@@ -30,7 +30,7 @@ public class EnemyAI : MonoBehaviour
         if (hasCrate == false)
         {
             moveToCrate();
-            anim.SetBool("Dragging", false);
+            anim.SetBool("dragging", false);
         }
         else if (hasCrate == true)
         {

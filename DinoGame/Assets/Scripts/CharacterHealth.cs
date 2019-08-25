@@ -7,6 +7,7 @@ public class CharacterHealth : MonoBehaviour
     public float health;
     public bool isDead;
     public AudioClip hurt;
+    public GameObject roarText;
 
     private AudioSource ac;
 
@@ -23,6 +24,8 @@ public class CharacterHealth : MonoBehaviour
         {
             isDead = true;
             GetComponent<Animator>().SetBool("dead", true);
+            roarText.SetActive(false);
+            StartCoroutine(EndEx());
         } else {
             health -= damageAmount;
             ac.PlayOneShot(hurt);
@@ -38,5 +41,12 @@ public class CharacterHealth : MonoBehaviour
     void DebugHealth()
     {
         Debug.Log(gameObject.name + " " + health);
+    }
+
+    IEnumerator EndEx()
+    {
+        // wait for 1 second
+        yield return new WaitForSeconds(3.0f);
+        GameObject.Find("GameController").SendMessage("RestartGame");
     }
 }

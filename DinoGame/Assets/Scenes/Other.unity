@@ -1404,6 +1404,11 @@ PrefabInstance:
       propertyPath: hurt
       value: 
       objectReference: {fileID: 8300000, guid: bc6a148c98c5ed941b2ba615aa041f7d, type: 3}
+    - target: {fileID: 5619832615821820120, guid: b8f2911840587f445ae2a77e0e4085c3,
+        type: 3}
+      propertyPath: roarText
+      value: 
+      objectReference: {fileID: 1709209335}
     - target: {fileID: 5619832615821820122, guid: b8f2911840587f445ae2a77e0e4085c3,
         type: 3}
       propertyPath: stomp
@@ -2022,6 +2027,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1709209335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5619832616773622184, guid: b8f2911840587f445ae2a77e0e4085c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1277536716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1713280998
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,15 @@ using UnityEngine;
 public class ItemController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private AudioSource ac;
+
+    public AudioClip meteorImpact;
+    public AudioClip crateImpact;
+    
     private void Start()
     {
         rb = gameObject.GetComponentInChildren<Rigidbody2D>();
+        ac = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -31,10 +37,12 @@ public class ItemController : MonoBehaviour
         if (collision.tag == "Environment" && this.gameObject.tag == "HealthPickup")
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            ac.PlayOneShot(crateImpact);
         }
         if (collision.tag == "Environment" && this.gameObject.tag == "PointsPickup")
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            ac.PlayOneShot(crateImpact);
         }
         if (collision.tag == "Enemy" && this.gameObject.tag == "PointsPickup")
         {

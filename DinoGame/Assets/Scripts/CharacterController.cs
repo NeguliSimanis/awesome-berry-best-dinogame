@@ -60,14 +60,4 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    public void SetSpeed(float target)
-    {
-        speed = target;
-    }
-
-    public void ResetSpeed()
-    {
-        speed = _speed;
-    }
-
 }

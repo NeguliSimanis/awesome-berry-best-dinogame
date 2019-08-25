@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterActions : MonoBehaviour
 {
-    public string[] roars;
     private CharacterHealth charHealth;
     private CharacterController controller;
     private GameController gc;
@@ -38,9 +37,7 @@ public class CharacterActions : MonoBehaviour
     {
         if (Input.GetButtonDown("Roar"))
         {
-            int i = Random.Range(0, roars.Length);
-            Debug.Log(roars[i]);
-            anim.SetBool("roar", true);
+            Roar();
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -75,7 +72,6 @@ public class CharacterActions : MonoBehaviour
         carryingItem = true;
         body.GetComponent<SpriteRenderer>().sprite = carryingBody;
         SetHands(false);
-        controller.SetSpeed(4);
         ac.PlayOneShot(pickup);
     }
 
@@ -84,7 +80,6 @@ public class CharacterActions : MonoBehaviour
         carryingItem = false;
         body.GetComponent<SpriteRenderer>().sprite = defaultBody;
         SetHands(true);
-        controller.ResetSpeed();
         ac.PlayOneShot(score);
     }
 
@@ -120,5 +115,19 @@ public class CharacterActions : MonoBehaviour
     public void Stomp()
     {
         ac.PlayOneShot(stomp, Random.Range(0.5f, 1));
+    }
+
+    public void Roar()
+    {
+        anim.SetBool("roar", true);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 10);
+        for(int i = 0; i < hitColliders.Length; i++)
+        {
+            if(hitColliders[i].gameObject.tag == "Enemy")
+            {
+                Debug.Log(hitColliders[i].gameObject.name);
+                hitColliders[i].gameObject.GetComponent<EnemyAI>().Flee();
+            }
+        }
     }
 }
