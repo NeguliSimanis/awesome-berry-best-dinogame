@@ -9,6 +9,7 @@ public class CharacterActions : MonoBehaviour
     private CharacterController controller;
     private GameController gc;
     private Animator anim;
+    private AudioSource ac;
 
     private bool carryingItem;
 
@@ -19,6 +20,10 @@ public class CharacterActions : MonoBehaviour
     public Sprite carryingBody;
 
     public GameObject roarText;
+    public AudioClip stomp;
+    public AudioClip roar;
+    public AudioClip pickup;
+    public AudioClip score;
 
     private void Start()
     {
@@ -26,6 +31,7 @@ public class CharacterActions : MonoBehaviour
         controller = GetComponent<CharacterController>();
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         anim = GetComponent<Animator>();
+        ac = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -48,7 +54,7 @@ public class CharacterActions : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "HealthPickup")
+        if(collision.tag == "PointsPickup")
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && !carryingItem)
             {
@@ -70,6 +76,7 @@ public class CharacterActions : MonoBehaviour
         body.GetComponent<SpriteRenderer>().sprite = carryingBody;
         SetHands(false);
         controller.SetSpeed(4);
+        ac.PlayOneShot(pickup);
     }
 
     void dropItem()
@@ -78,6 +85,7 @@ public class CharacterActions : MonoBehaviour
         body.GetComponent<SpriteRenderer>().sprite = defaultBody;
         SetHands(true);
         controller.ResetSpeed();
+        ac.PlayOneShot(score);
     }
 
     void SetHands(bool value)
@@ -106,5 +114,11 @@ public class CharacterActions : MonoBehaviour
             roarText.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         roarText.SetActive(true);
+        ac.PlayOneShot(roar);
+    }
+
+    public void Stomp()
+    {
+        ac.PlayOneShot(stomp, Random.Range(0.5f, 1));
     }
 }

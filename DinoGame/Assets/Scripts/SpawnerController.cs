@@ -43,8 +43,6 @@ public class SpawnerController : MonoBehaviour
                 else
                 {
                     if (Random.Range(0, 10) > 5)
-                        spawnableObj = healthPickupPrefab;
-                    else
                         spawnableObj = suppliesPickupPrefab;
                 }
                     

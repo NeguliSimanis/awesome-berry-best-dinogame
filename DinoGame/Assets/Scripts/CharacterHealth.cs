@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
-    public float _health;
+    public float health;
     public bool isDead;
+    public AudioClip hurt;
 
-    private float health;
+    private AudioSource ac;
 
     void Start()
     {
-        health = _health;
+        health = 100;
         isDead = false;
+        ac = GetComponent<AudioSource>();
     }
 
     public void DamageCharacter(float damageAmount)
@@ -20,8 +22,10 @@ public class CharacterHealth : MonoBehaviour
         if(health <= 0)
         {
             isDead = true;
+            GetComponent<Animator>().SetBool("dead", true);
         } else {
             health -= damageAmount;
+            ac.PlayOneShot(hurt);
             DebugHealth();
         }
     }

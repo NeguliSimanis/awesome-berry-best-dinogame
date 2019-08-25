@@ -22,7 +22,7 @@ public class SliderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HPslider.value = health._health / 100;
+        HPslider.value = health.health / 100;
         CrateSlider.value = score.score / 10;
     }
 }

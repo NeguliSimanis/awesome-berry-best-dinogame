@@ -19,7 +19,7 @@ public class ItemController : MonoBehaviour
         
         if (collision.tag == "Player" && this.gameObject.tag=="Debris")
         {
-            collision.gameObject.GetComponentInChildren<CharacterHealth>()._health -= 10;
+            collision.gameObject.GetComponentInChildren<CharacterHealth>().DamageCharacter(35);
             Destroy(this.gameObject);
         }
 

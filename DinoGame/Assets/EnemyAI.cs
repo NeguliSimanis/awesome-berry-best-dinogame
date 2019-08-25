@@ -35,13 +35,19 @@ public class EnemyAI : MonoBehaviour
         else if (hasCrate == true)
         {
             moveToBase();
-            anim.SetBool("Dragging", true);
+            anim.SetBool("dragging", true);
         }
         if (this.transform.position.y < -20f)
             Destroy(this.gameObject);
 
         if (isFleeing == true)
             Flee();
+        if(rb.velocity.magnitude <= 0)
+        {
+            anim.SetBool("walking", false);
+        } else {
+            anim.SetBool("walking", true);
+        }
     }
 
     public void moveToCrate()
