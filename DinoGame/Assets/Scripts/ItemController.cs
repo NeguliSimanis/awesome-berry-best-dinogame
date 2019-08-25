@@ -71,7 +71,7 @@ public class ItemController : MonoBehaviour
     {
         GameObject newExplosion = Instantiate(explosion);//, explosionLocation.position, explosionLocation.rotation);
         newExplosion.transform.position = explosionLocation.position;
-        explosion.transform.parent = null;
+        newExplosion.transform.parent = null;
     }
 
     public void Dropped()
