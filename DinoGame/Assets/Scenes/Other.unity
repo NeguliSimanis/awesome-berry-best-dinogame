@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -428,8 +428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -6.98, y: 1.99}
+  m_SizeDelta: {x: 13.96, y: 3.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &259254755
 MonoBehaviour:
@@ -618,8 +618,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 29.97, y: -3.39}
-  m_SizeDelta: {x: -62.82, y: -22.73}
+  m_AnchoredPosition: {x: 24.99, y: -3.39}
+  m_SizeDelta: {x: -52.85, y: -22.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &374098540
 GameObject:
@@ -1995,6 +1995,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5619832616773622184, guid: b8f2911840587f445ae2a77e0e4085c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5619832616590958679, guid: b8f2911840587f445ae2a77e0e4085c3,
         type: 3}
       propertyPath: m_Layer
@@ -2006,11 +2011,6 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5619832616492663840, guid: b8f2911840587f445ae2a77e0e4085c3,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619832616773622184, guid: b8f2911840587f445ae2a77e0e4085c3,
         type: 3}
       propertyPath: m_Layer
       value: 8
