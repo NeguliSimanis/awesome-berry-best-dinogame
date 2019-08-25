@@ -126,7 +126,7 @@ public class CharacterActions : MonoBehaviour
             if(hitColliders[i].gameObject.tag == "Enemy")
             {
                 Debug.Log(hitColliders[i].gameObject.name);
-                hitColliders[i].gameObject.GetComponent<EnemyAI>().Flee();
+                hitColliders[i].gameObject.GetComponent<EnemyAI>().isFleeing = true;
             }
         }
     }
