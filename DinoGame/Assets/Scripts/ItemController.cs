@@ -61,6 +61,7 @@ public class ItemController : MonoBehaviour
             layingCrate.SetActive(true);
             this.transform.parent = collision.transform;
             collision.GetComponentInChildren<EnemyAI>().hasCrate = true;
+            transform.Translate(-2, 0, 0);
             this.tag = "Empty";
         }
     }

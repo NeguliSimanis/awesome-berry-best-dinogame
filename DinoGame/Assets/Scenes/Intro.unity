@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -215,6 +215,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: DinosaurPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.8368
+      objectReference: {fileID: 0}
     - target: {fileID: 2078953950623493061, guid: b8f2911840587f445ae2a77e0e4085c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -319,31 +344,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.1628
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5619832616189390422, guid: b8f2911840587f445ae2a77e0e4085c3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.8368
       objectReference: {fileID: 0}
     - target: {fileID: 5619832616988570866, guid: b8f2911840587f445ae2a77e0e4085c3,
         type: 3}
@@ -957,8 +957,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 356, y: 231}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 356, y: 204}
+  m_SizeDelta: {x: 160, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382359030
 MonoBehaviour:
@@ -1036,8 +1036,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -258396049070271161, guid: 8e63ad193f1cd1846af978314d1aa833,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

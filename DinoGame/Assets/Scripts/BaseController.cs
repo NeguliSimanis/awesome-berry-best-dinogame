@@ -24,7 +24,7 @@ public class BaseController : MonoBehaviour
 
     private void Start()
     {
-        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        //scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
     public  void Update()
@@ -58,7 +58,7 @@ public class BaseController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             points++;
-            scoreText.text = points.ToString();
+            //scoreText.text = points.ToString();
             if(points >=10)
                 SceneManager.LoadScene("GameOver_Bad");
 
