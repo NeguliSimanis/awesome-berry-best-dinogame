@@ -17,6 +17,11 @@ public class EnemyAI : MonoBehaviour
     public bool isFleeing = false;
     public Animator anim;
 
+    public SpriteRenderer body;
+
+    public Sprite defaultBody;
+    public Sprite spookedBody;
+
     private void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
@@ -77,6 +82,7 @@ public class EnemyAI : MonoBehaviour
 
     public void Flee()
     {
+        body.sprite = spookedBody;
         gameObject.layer = 9; //LAYER!!! 
         if(hasCrate)
             GetComponentInChildren<ItemController>().Dropped();
@@ -94,10 +100,12 @@ public class EnemyAI : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <=0)
         {
+            body.sprite = defaultBody;
             isFleeing = false;
             gameObject.layer = 8; //LAYER!!! 
             timer = 2f;
             called = false;
+
         }
             
     }
