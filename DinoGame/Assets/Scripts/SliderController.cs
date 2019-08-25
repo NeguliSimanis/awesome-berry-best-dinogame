@@ -28,6 +28,6 @@ public class SliderController : MonoBehaviour
     {
         HPslider.value = health.health / 100;
         CrateSlider.value = score.score / 10;
-        HumanSlider.value = humanScore.points / 10;
+        HumanSlider.value = humanScore.points / 10f;
     }
 }
