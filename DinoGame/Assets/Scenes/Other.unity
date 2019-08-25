@@ -1372,7 +1372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimTarget: {fileID: 1810361539}
   lineRenderer: {fileID: 1934194422}
-  explosionPrefab: {fileID: 2473852347826649480, guid: b7f3abf98bc3d074e9eb9961bd380f43,
+  explosionPrefab: {fileID: 2473852347826649480, guid: 22052e114be75b046b6cbdd7e8d52117,
     type: 3}
   on: 0
 --- !u!1 &1195014370

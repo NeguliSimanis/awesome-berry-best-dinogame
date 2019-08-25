@@ -7,6 +7,7 @@ public class LaserEyes : MonoBehaviour
     public Transform aimTarget;
     public LineRenderer lineRenderer;
     public GameObject explosionPrefab;
+    private GameObject _explosionInstance;
 
     private Vector3 lastHitPosition;
 
@@ -17,6 +18,8 @@ public class LaserEyes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _explosionInstance = Instantiate(explosionPrefab);
+        _explosionInstance.transform.position = new Vector3(-50, -50, -50);
     }
 
     // Update is called once per frame
@@ -44,8 +47,8 @@ public class LaserEyes : MonoBehaviour
     IEnumerator SpawnExplosion()
     {
         spawnExplosion = false;
-        var e = Instantiate(explosionPrefab);
-        e.transform.position = lastHitPosition;
+
+        _explosionInstance.transform.position = lastHitPosition;
         yield return new WaitForSeconds(0.1f);
         spawnExplosion = true;
     }
