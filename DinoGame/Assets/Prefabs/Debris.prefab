@@ -96,6 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorImpact: {fileID: 8300000, guid: 5db0a01aaeb99ba4e979e621d911fae5, type: 3}
   crateImpact: {fileID: 8300000, guid: 0d6f5a5cc80515340ad1bf8235ee71ad, type: 3}
+  explosion: {fileID: 2473852347826649480, guid: b7f3abf98bc3d074e9eb9961bd380f43,
+    type: 3}
 --- !u!82 &-3483674395145115365
 AudioSource:
   m_ObjectHideFlags: 0

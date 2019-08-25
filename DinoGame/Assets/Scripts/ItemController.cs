@@ -9,6 +9,7 @@ public class ItemController : MonoBehaviour
 
     public AudioClip meteorImpact;
     public AudioClip crateImpact;
+    public GameObject explosion;
     
     private void Start()
     {
@@ -26,13 +27,15 @@ public class ItemController : MonoBehaviour
         if (collision.tag == "Player" && this.gameObject.tag=="Debris")
         {
             collision.gameObject.GetComponentInChildren<CharacterHealth>().DamageCharacter(35);
-            Destroy(this.gameObject);
+            Instantiate(explosion, transform.position, transform.rotation);
+            StartCoroutine("DestroyObject");
         }
 
         if(collision.tag == "Environment" && this.gameObject.tag == "Debris")
         {
-            //animation or crashed debris TODO
-            Destroy(this.gameObject);
+            Instantiate(explosion, gameObject.transform);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            StartCoroutine("DestroyObject");
         }
         if (collision.tag == "Environment" && this.gameObject.tag == "HealthPickup")
         {
@@ -58,6 +61,13 @@ public class ItemController : MonoBehaviour
         transform.tag = "PointsPickup";
         transform.parent = null;
         rb.isKinematic = false;
+    }
+
+    IEnumerator DestroyObject()
+    {
+        yield return new WaitForSeconds(0.55f);
+        StopCoroutine(DestroyObject());
+        Destroy(gameObject);
     }
 
 }
