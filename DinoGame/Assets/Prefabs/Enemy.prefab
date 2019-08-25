@@ -177,13 +177,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7507904868798414737, guid: 92ae9832e8d50b744a253b619d4a3aba,
         type: 3}
-      propertyPath: m_FlipX
-      value: 0
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7507904868798414737, guid: 92ae9832e8d50b744a253b619d4a3aba,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7507904868831925978, guid: 92ae9832e8d50b744a253b619d4a3aba,
         type: 3}
