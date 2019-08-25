@@ -664,6 +664,7 @@ MonoBehaviour:
   dino: {fileID: 1483309442}
   anykey: {fileID: 1796281549}
   ac: {fileID: 1901097279}
+  confirm: {fileID: 8300000, guid: d56abcf3f4af4554da3ec97f9f6fd2dc, type: 3}
 --- !u!114 &736472218
 MonoBehaviour:
   m_ObjectHideFlags: 0

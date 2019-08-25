@@ -6,12 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    void Start()
-    {
-        
-    }
+    public GameObject instructions;
 
     public void onPlay()
     {
@@ -24,5 +19,15 @@ public class MenuController : MonoBehaviour
     public void onExit()
     {
         Application.Quit();
+    }
+
+    public void onHowTo()
+    {
+        instructions.SetActive(true);
+    }
+
+    public void BackToMenu()
+    {
+        instructions.SetActive(false);
     }
 }

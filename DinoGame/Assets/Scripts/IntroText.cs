@@ -14,6 +14,7 @@ public class IntroText : MonoBehaviour
     public Animator dino;
     public GameObject anykey;
     public AudioSource ac;
+    public AudioClip confirm;
 
     void Awake()
     {
@@ -54,9 +55,11 @@ public class IntroText : MonoBehaviour
                 if(i == 8)
                 {
                     LoadLevel();
+                } else {
+                    ac.PlayOneShot(confirm, 1);
+                    selected = story[i];
+                    StartCoroutine("PlayText");
                 }
-                selected = story[i];
-                StartCoroutine("PlayText");
             }
         }
     }
