@@ -57,6 +57,8 @@ public class ItemController : MonoBehaviour
         if (collision.tag == "Enemy" && this.gameObject.tag == "PointsPickup")
         {
             rb.isKinematic=true;
+            flyingCrate.SetActive(false);
+            layingCrate.SetActive(true);
             this.transform.parent = collision.transform;
             collision.GetComponentInChildren<EnemyAI>().hasCrate = true;
             this.tag = "Empty";
