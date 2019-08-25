@@ -10,6 +10,7 @@ public class ItemController : MonoBehaviour
     public AudioClip meteorImpact;
     public AudioClip crateImpact;
     public GameObject explosion;
+    public Transform explosionLocation;
 
     public GameObject flyingCrate;
     public GameObject layingCrate;
@@ -30,15 +31,15 @@ public class ItemController : MonoBehaviour
         if (collision.tag == "Player" && this.gameObject.tag=="Debris")
         {
             collision.gameObject.GetComponentInChildren<CharacterHealth>().DamageCharacter(35);
-            Instantiate(explosion, transform.position, transform.rotation);
-            StartCoroutine("DestroyObject");
+            InstantiateExplosion();
+            DestroyObjectImmediately();
         }
 
         if(collision.tag == "Environment" && this.gameObject.tag == "Debris")
         {
-            Instantiate(explosion, gameObject.transform);
+            InstantiateExplosion();
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            StartCoroutine("DestroyObject");
+            DestroyObjectImmediately();
         }
         if (collision.tag == "Environment" && this.gameObject.tag == "HealthPickup")
         {
@@ -66,11 +67,23 @@ public class ItemController : MonoBehaviour
         }
     }
 
+    private void InstantiateExplosion()
+    {
+        GameObject newExplosion = Instantiate(explosion);//, explosionLocation.position, explosionLocation.rotation);
+        newExplosion.transform.position = explosionLocation.position;
+        explosion.transform.parent = null;
+    }
+
     public void Dropped()
     {
         transform.tag = "PointsPickup";
         transform.parent = null;
         rb.isKinematic = false;
+    }
+
+    private void DestroyObjectImmediately()
+    {
+        Destroy(gameObject);
     }
 
     IEnumerator DestroyObject()
