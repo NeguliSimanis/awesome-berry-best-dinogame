@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     {
         if (skip == true)
             SceneManager.LoadScene("GameOver_Good");
+        if (score >= 5)
+            FindObjectOfType<LaserEyes>().on = true;
     }
     public void increaseScore()
     {
