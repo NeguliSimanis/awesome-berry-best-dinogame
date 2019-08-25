@@ -10,6 +10,9 @@ public class ItemController : MonoBehaviour
     public AudioClip meteorImpact;
     public AudioClip crateImpact;
     public GameObject explosion;
+
+    public GameObject flyingCrate;
+    public GameObject layingCrate;
     
     private void Start()
     {
@@ -40,11 +43,15 @@ public class ItemController : MonoBehaviour
         if (collision.tag == "Environment" && this.gameObject.tag == "HealthPickup")
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            flyingCrate.SetActive(false);
+            layingCrate.SetActive(true);
             ac.PlayOneShot(crateImpact);
         }
         if (collision.tag == "Environment" && this.gameObject.tag == "PointsPickup")
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            flyingCrate.SetActive(false);
+            layingCrate.SetActive(true);
             ac.PlayOneShot(crateImpact);
         }
         if (collision.tag == "Enemy" && this.gameObject.tag == "PointsPickup")
