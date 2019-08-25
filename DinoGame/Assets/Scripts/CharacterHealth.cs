@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterHealth : MonoBehaviour
 {
@@ -48,6 +49,6 @@ public class CharacterHealth : MonoBehaviour
     {
         // wait for 1 second
         yield return new WaitForSeconds(3.0f);
-        GameObject.Find("GameController").SendMessage("RestartGame");
+        SceneManager.LoadScene("GameOver_Bad");
     }
 }

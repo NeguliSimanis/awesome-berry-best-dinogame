@@ -50,6 +50,7 @@ public class LaserEyes : MonoBehaviour
 
         _explosionInstance.transform.position = lastHitPosition;
         yield return new WaitForSeconds(0.1f);
+
         spawnExplosion = true;
     }
 
