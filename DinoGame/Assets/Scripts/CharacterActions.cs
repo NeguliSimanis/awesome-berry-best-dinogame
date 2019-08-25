@@ -11,6 +11,7 @@ public class CharacterActions : MonoBehaviour
     private AudioSource ac;
 
     private bool carryingItem;
+    public bool canRoar;
 
     public GameObject body;
     public GameObject[] hands;
@@ -31,13 +32,15 @@ public class CharacterActions : MonoBehaviour
         gc = GameObject.Find("GameController").GetComponent<GameController>();
         anim = GetComponent<Animator>();
         ac = GetComponent<AudioSource>();
+        canRoar = true;
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Roar"))
+        if (Input.GetButtonDown("Roar") && canRoar)
         {
             Roar();
+            StartCoroutine("RoarReset");
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -119,6 +122,7 @@ public class CharacterActions : MonoBehaviour
 
     public void Roar()
     {
+        canRoar = false;
         anim.SetBool("roar", true);
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 10);
         for(int i = 0; i < hitColliders.Length; i++)
@@ -129,5 +133,11 @@ public class CharacterActions : MonoBehaviour
                 hitColliders[i].gameObject.GetComponent<EnemyAI>().isFleeing = true;
             }
         }
+    }
+
+    IEnumerator RoarReset()
+    {
+        yield return new WaitForSeconds(3f);
+        canRoar = true;
     }
 }

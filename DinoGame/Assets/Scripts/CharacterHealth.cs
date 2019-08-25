@@ -24,6 +24,7 @@ public class CharacterHealth : MonoBehaviour
         {
             isDead = true;
             GetComponent<Animator>().SetBool("dead", true);
+            GetComponent<CharacterActions>().canRoar = false;
             roarText.SetActive(false);
             StartCoroutine(EndEx());
         } else {
