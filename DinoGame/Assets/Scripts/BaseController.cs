@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BaseController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class BaseController : MonoBehaviour
     private float xRandom;
     public int points;
     private Text scoreText;
+    [SerializeField]
+    private bool skip = false;
 
     private void Start()
     {
@@ -27,6 +30,8 @@ public class BaseController : MonoBehaviour
     public  void Update()
     {
         SpawnUnits();
+        if (skip == true)
+            SceneManager.LoadScene("GameOver_Bad");
     }
 
     public void SpawnUnits()
@@ -54,6 +59,9 @@ public class BaseController : MonoBehaviour
             Destroy(collision.gameObject);
             points++;
             scoreText.text = points.ToString();
+            if(points >=10)
+                SceneManager.LoadScene("GameOver_Bad");
+
         }
             
     }
