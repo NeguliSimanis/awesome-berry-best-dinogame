@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseController : MonoBehaviour
 {
@@ -16,7 +17,13 @@ public class BaseController : MonoBehaviour
     private GameObject obj;
     private float xRandom;
     public int points;
-    
+    private Text scoreText;
+
+    private void Start()
+    {
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+    }
+
     public  void Update()
     {
         SpawnUnits();
@@ -46,6 +53,7 @@ public class BaseController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             points++;
+            scoreText.text = points.ToString();
         }
             
     }
