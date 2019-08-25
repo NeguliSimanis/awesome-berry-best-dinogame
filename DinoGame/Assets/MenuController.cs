@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
 
     public void onPlay()
     {
-        SceneManager.LoadScene("Other");
+        SceneManager.LoadScene("Intro");
     }
     public void onCredits()
     {
