@@ -10,7 +10,7 @@ public class CharacterActions : MonoBehaviour
     private Animator anim;
     private AudioSource ac;
 
-    private bool carryingItem;
+    public bool carryingItem;
     public bool canRoar;
 
     public GameObject body;
@@ -42,35 +42,17 @@ public class CharacterActions : MonoBehaviour
             Roar();
             StartCoroutine("RoarReset");
         }
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+       /* if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             charHealth.DamageCharacter(25);
         }
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             charHealth.HealthPickup(25);
-        }
+        }*/
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.tag == "PointsPickup")
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !carryingItem)
-            {
-                Debug.Log("Picking up item");
-                pickupItem();
-                Destroy(collision.gameObject);
-            }
-        }
-        if(collision.tag == "FriendlyStructure" && carryingItem)
-        {
-            dropItem();
-            gc.increaseScore();
-        }
-    }
-
-    void pickupItem()
+    public void pickupItem()
     {
         carryingItem = true;
         body.GetComponent<SpriteRenderer>().sprite = carryingBody;
@@ -78,7 +60,7 @@ public class CharacterActions : MonoBehaviour
         ac.PlayOneShot(pickup);
     }
 
-    void dropItem()
+    public void dropItem()
     {
         carryingItem = false;
         body.GetComponent<SpriteRenderer>().sprite = defaultBody;
@@ -130,7 +112,9 @@ public class CharacterActions : MonoBehaviour
             if(hitColliders[i].gameObject.tag == "Enemy")
             {
                 Debug.Log(hitColliders[i].gameObject.name);
-                hitColliders[i].gameObject.GetComponent<EnemyAI>().isFleeing = true;
+                EnemyAI foundEnemy = hitColliders[i].gameObject.GetComponent<EnemyAI>();
+                foundEnemy.isFleeing = true;
+                foundEnemy.StartScream();
             }
         }
     }

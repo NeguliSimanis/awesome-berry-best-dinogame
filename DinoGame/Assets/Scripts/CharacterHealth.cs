@@ -8,13 +8,14 @@ public class CharacterHealth : MonoBehaviour
     public float health;
     public bool isDead;
     public AudioClip hurt;
+    public AudioClip wow;
     public GameObject roarText;
 
     private AudioSource ac;
 
     void Start()
     {
-        health = 100;
+        health = 80;
         isDead = false;
         ac = GetComponent<AudioSource>();
     }
@@ -47,8 +48,9 @@ public class CharacterHealth : MonoBehaviour
 
     IEnumerator EndEx()
     {
-        // wait for 1 second
+        //ac.PlayOneShot(wow);
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene("GameOver_Bad");
     }
+
 }

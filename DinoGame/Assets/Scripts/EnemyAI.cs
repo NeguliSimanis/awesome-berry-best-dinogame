@@ -22,6 +22,9 @@ public class EnemyAI : MonoBehaviour
     public Sprite defaultBody;
     public Sprite spookedBody;
 
+    [SerializeField]
+    private AudioClip scream;
+
     private void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
@@ -78,6 +81,17 @@ public class EnemyAI : MonoBehaviour
     {
         var heading = baseObject.transform.position - transform.position;
         rb.AddForce(heading.normalized * speed);
+    }
+
+    public void StartScream()
+    {
+        StartCoroutine(ScreamAfterDelay());
+    }
+
+    private IEnumerator ScreamAfterDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(scream);
     }
 
     public void Flee()
